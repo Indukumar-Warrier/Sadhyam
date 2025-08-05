@@ -1,156 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="form.css">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document2</title>
-</head>
-
-<body>
-  <h2>REGISTRATION FORM</h2>
-  <h3>SPEED CELEBRATION 2026</h3>
-  <form method="post" action="https://script.google.com/macros/s/AKfycbyITVzj8br6Y-u6oUHTRAArPmi8P7-BLXPUVJJIndQoFgKsGBhYcLa_qQIXPhzcKhpqAQ/exec">
-    <div class="formgroup">
-      <label for="nameinput">NANE :</label>
-      <input id="nameinput" value="" type="text">
-    </div>
-
-    <div class="formgroup">
-      <label>DESIGNATION :</label>
-      <input id="designationinput" type="text" value="">
-    </div>
-
-    <div class="formgroup">
-      <label for="phoneinput">PHONE NUMBER :</label>
-      <input id="phoneinput" type="tel" maxlength="10" pattern="[0-9]{10}">
-    </div>
-
-    <div class="formgroup">
-      <label id="office" for="officeinput">OFFICE :</label>
-      <input id="officeinput" type="text">
-    </div>
-    <div class="formgroup">
-      <label>DISTRICT :</label>
-      <select name="DISTRICT" id="districtinput">
-        <option value="0">Select</option>
-        <option value="1">THIRUVANANTHAPURAM</option>
-        <option value="2">KOLLAM</option>
-        <option value="3">KOTTAYAM</option>
-        <option value="4">IDUKKI</option>
-        <option value="5">PATHANAMTHTTA</option>
-        <option value="6">ALAPPUZHA</option>
-        <option value="7">ERNAKULAM</option>
-        <option value="8">THRISSUR</option>
-        <option value="9">PALAKKAD</option>
-        <option value="10">MALAPPURAM</option>
-        <option value="11">KOZHIKODE</option>
-        <option value="12">WAYANAD</option>
-        <option value="13">KANNUR</option>
-        <option value="14">KASARGODE</option>
-      </select>
-    </div>
-
-    <div class="formgroup">
-      <label>METHODE OF PARTICIPATION</label>
-      <input type="radio" name="participation" value="single" onchange="single_family()">SINGLE</label>
-      <input type="radio" name="participation" value="family" onchange="single_family()">FAMILY</label>
-    </div>
-
-
-    <div id="family" style="display: none">
-      <div class="formgroup">
-        <label>NUMBER OF FAMILY MEMBER</label>
-        <input id="familymember" type="number" name="fNo" value="" onchange="amountcalc()">
-      </div>
-      <div class="formgroup">
-        <label>NUMBER OF CHILDRAN (BELOW 5 YEARS)</label>
-        <input id="childnumber" type="number" value="">
-      </div>
-    </div>
-
-
-
-    <label id="familyRS" style="display: none"></label><br>
-    <label id="speedmember"></label><br>
-    <label id="totalcharge"></label>
-
- </form>
-
-
-  <button type="submit" class="registernow" onclick="inputOKtest(),submitForm()">
-    Submit
-  </button>
-
- 
-
-
-
-
-
-  <div id="alertmenu">
-    <h6 id="allelert"></h6>
-    <div id="okbut">
-      <button onclick="okbutton()">OK</button>
-    </div>
-  </div>
-
-
-  <script src="fom.js"></script>
-  <script>
-    function submitForm() {
-      let name = document.getElementById("nameinput").value;
-      let designation = document.getElementById("designationinput").value;
-      let phone = document.getElementById("phoneinput").value;
-      let office = document.getElementById("officeinput").value;
-      let district = document.getElementById("districtinput").value;
-      let participation = document.querySelector('input[name="participation"]:checked')?.value || '';
-      let familyCount = document.getElementById("familymember").value || '0';
-      let childrenCount = document.getElementById("childnumber").value || '0';
-
-      // Optional: Validate required fields
-      if (!name || !designation || !phone || !office || district == "0") {
-        alert("Please fill all required fields");
-        return;
-      }
-
-      // Prepare data
-      const formData = {
-        name,
-        designation,
-        phone,
-        office,
-        district,
-        participation,
-        familyCount,
-        childrenCount
-      };
-
-      // 🔗 YOUR_SCRIPT_URL_HERE = Replace with your actual Apps Script URL
-      //fetch("https://script.google.com/macros/s/AKfycbyITVzj8br6Y-u6oUHTRAArPmi8P7-BLXPUVJJIndQoFgKsGBhYcLa_qQIXPhzcKhpqAQ/exec", 
-      
-      fetch("https://script.google.com/macros/s/AKfycbyBOh-kgXnVDyeTLcnbBjrTahpo1ZbbCIEcMut7IXciWe_oZ8Kdjd8Gb1T_xg_1onLO/exec",
-      {
-      
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadhyam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-      }).then(res => res.text())
-        .then(msg => {
-          document.getElementById("allelert").innerText = "✅ Successfully Registered!";
-          document.getElementById("alertmenu").style.display = "block";
-          document.getElementById("registration-form").reset();
-        })
-        .catch(err => {
-          document.getElementById("allelert").innerText = "❌ Error: " + err;
-          document.getElementById("alertmenu").style.display = "block";
-        });
-    }
-  </script>
 
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 40px 20px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sadhyam (സാദ്ധ്യം)</h1>
+        <p class="subtitle">Welcome to our digital space</p>
+        <p class="subtitle">Indukumar Warrier</p>
+        <nav class="nav-links">
+            <a href="about.html" class="nav-link">About</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </div>
 </body>
-
 </html>
