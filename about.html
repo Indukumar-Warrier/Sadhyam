@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Sadhyam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 90%;
+        }
+
+        .nav {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 16px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover, .nav a.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-content {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .about-section {
+            margin-bottom: 30px;
+        }
+
+        .about-section h2 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .nav a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <h1>About Sadhyam</h1>
+        
+        <div class="about-content">
+            <div class="about-section">
+                <h2>Our Vision</h2>
+                <p>Sadhyam (സാദ്ധ്യം) represents possibility and potential. We believe in transforming ideas into reality through innovative solutions and dedicated craftsmanship.</p>
+            </div>
+
+            <div class="highlight">
+                <p><strong>Sadhyam</strong> - derived from Sanskrit, meaning "that which is possible" or "achievable" - embodies our commitment to making the impossible possible.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>What We Do</h2>
+                <p>We specialize in creating digital experiences that matter. From web development to creative solutions, we focus on delivering quality work that exceeds expectations.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Approach</h2>
+                <p>Every project is unique, and we treat it as such. We combine technical expertise with creative thinking to deliver solutions that are not just functional, but meaningful and impactful.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Leadership</h2>
+                <p>Led by <strong>Indukumar Warrier</strong>, our team brings together years of experience and a passion for excellence in every project we undertake.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
